@@ -41,5 +41,24 @@ body {
 .container .header .title span {
   font-weight: 700;
 }
+.container .header .button {
+  width: 171px;
+  height: 33px;
+  border-radius: 2px;
+  background-color: #5cb85c;
+  font-size: 13px;
+  text-transform: capitalize;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.container .header .button i {
+  margin-right: 4px;
+}
 
 /*# sourceMappingURL=style.css.map */
