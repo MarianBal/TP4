@@ -79,7 +79,18 @@ body {
   font-size: 14px;
 }
 .container .content {
+  width: 100%;
   padding: 0 20px;
+}
+.container .content .data-titles {
+  border-bottom: 2px solid #ddd;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container .content span {
+  padding: 12px 15px;
 }
 
 /*# sourceMappingURL=style.css.map */
