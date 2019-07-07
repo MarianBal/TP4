@@ -166,7 +166,6 @@ body {
 }
 .container .content .users .data div:nth-child(3) {
   width: 30%;
-  text-transform: lowercase;
 }
 .container .content .users .data div:nth-child(4) {
   width: 15%;
@@ -367,4 +366,4 @@ body {
   }
 }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=bruce@wayneenterpreises.comstyle.css.map */

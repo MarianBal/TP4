@@ -137,7 +137,7 @@ body{
     .users{
       width:100%;
       @include flexbox(column, flex-start, flex-start);
-      
+
       .data{
         width: 100%;
         margin-top: 10px;
@@ -167,6 +167,8 @@ body{
 
         div:nth-child(3){
           width: 30%;
+          text-transform: lowercase;
+
         }
 
         div:nth-child(4){

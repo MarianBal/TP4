@@ -36,26 +36,7 @@
             <div>phone</div>
             <div>actions</div>
         </div>
-        <div class=users>
-          <div class="data">
-            <input type="checkbox" id="selectItem" class="check">
-            <div>Bruce Wayne</div>
-            <div>bruce@wayneenterpreises.com</div>
-            <div>Gotham City</div>
-            <div>08009991111</div>
-            <i class="material-icons yellow" title="Edit">&#xE254;</i>
-            <i class="material-icons red" title="Delete">&#xE872;</i>
-          </div>
-          <div class="data">
-              <input type="checkbox" id="selectItem" class="check">
-              <div>Bruce Wayne</div>
-              <div>bruce@wayneenterpreises.com</div>
-              <div>Gotham City</div>
-              <div>08009991111</div>
-              <i class="material-icons yellow" title="Edit">&#xE254;</i>
-              <i class="material-icons red" title="Delete">&#xE872;</i>
-            </div>
-        </div>
+        <div class=users></div>
       </div>
     </div>
     <div class="modal hidden">
@@ -74,7 +55,7 @@
             <div class="modal-subtitles">phone</div>
             <input id="phone" name="phone" type="text"/>
             <div class="modal-footer">  
-              <div class="cancel">cancel</div> 
+              <div class="cancel" onclick="closeModal()">cancel</div> 
               <div class="add">add</div>   
             </div>
         </form>
