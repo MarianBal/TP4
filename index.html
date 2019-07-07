@@ -45,7 +45,7 @@
           <div class="modal-title">add employee</div>
           <div class="close" onClick="closeModal()">x</div>
         </div>
-        <form name="login">
+        <form name="login" id="newEmployee">
             <div class="modal-subtitles">name</div>
             <input id="name" name="name" type="text"/>
             <div class="modal-subtitles">email</div>
@@ -55,8 +55,8 @@
             <div class="modal-subtitles">phone</div>
             <input id="phone" name="phone" type="text"/>
             <div class="modal-footer">  
-              <div class="cancel" onclick="closeModal()">cancel</div> 
-              <div class="add">add</div>   
+              <input type="button" class="cancel" onclick="closeModal()" value="Cancel"/>
+              <input type="submit" class="add" value="add"/> 
             </div>
         </form>
       </div>

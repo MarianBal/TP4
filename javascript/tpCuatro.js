@@ -2,23 +2,22 @@ console.log('Hola mundo');
 
 //selections
 const modal = document.querySelector('.modal');
+const usersData= document.querySelector('.users');
+const form = document.getElementById('newEmployee');
 
 //open modal
-
 const openModal = ()=>{
     const visibleModal = ()=>modal.classList.remove('hidden');
     visibleModal();
 }
 
 //close modal
-
 const closeModal =()=>{
     const hiddenModal=() => modal.classList.add('hidden');
     hiddenModal();
 }
 
 //fetch
-
 const api = 'http://localhost:4000/api/users'
 
 fetch(api)
@@ -38,7 +37,10 @@ fetch(api)
     </div>`;
     }).join('');
 
-    const usersData= document.querySelector('.users');
     usersData.innerHTML= eachUser;
 })
 
+//add emplyee
+form.onsubmit = e=>{
+    console.log(e)
+}
