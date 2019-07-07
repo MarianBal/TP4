@@ -17,3 +17,16 @@ const closeModal =()=>{
     hiddenModal();
 }
 
+//fetch
+
+fetch('http://localhost:4000/api/users')
+  .then(function (res) {
+    return res.json();
+  })
+  .then( (users)=> {
+    const eachUser = users.map( u=> {
+      return 'algo';
+    
+    });
+})
+

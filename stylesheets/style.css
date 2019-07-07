@@ -127,7 +127,14 @@ body {
 .container .content .data-titles div:nth-child(5) {
   width: 15%;
 }
-.container .content .data {
+.container .content .users {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.container .content .users .data {
   width: 100%;
   margin-top: 10px;
   display: flex;
@@ -135,7 +142,7 @@ body {
   justify-content: flex-start;
   align-items: center;
 }
-.container .content .data .check {
+.container .content .users .data .check {
   width: 18px;
   height: 18px;
   background-color: white;
@@ -144,7 +151,7 @@ body {
   margin-left: 15px;
   margin-right: 1%;
 }
-.container .content .data div {
+.container .content .users .data div {
   font-size: 13px;
   color: #435d7d;
   padding: 12px 15px;
@@ -154,26 +161,26 @@ body {
   justify-content: flex-start;
   align-items: flex-start;
 }
-.container .content .data div:nth-child(2) {
+.container .content .users .data div:nth-child(2) {
   width: 20%;
 }
-.container .content .data div:nth-child(3) {
+.container .content .users .data div:nth-child(3) {
   width: 30%;
 }
-.container .content .data div:nth-child(4) {
+.container .content .users .data div:nth-child(4) {
   width: 15%;
 }
-.container .content .data div:nth-child(5) {
+.container .content .users .data div:nth-child(5) {
   width: 15%;
 }
-.container .content .data i {
+.container .content .users .data i {
   font-size: 22px;
   margin: 0 7px;
 }
-.container .content .data .yellow {
+.container .content .users .data .yellow {
   color: #ffc107;
 }
-.container .content .data .red {
+.container .content .users .data .red {
   color: #f44336;
 }
 
@@ -317,7 +324,7 @@ body {
   .container .content .data-titles div:nth-child(5) {
     width: 15%;
   }
-  .container .content .data {
+  .container .content .users .data {
     width: 100%;
     margin-top: 10px;
     display: flex;
@@ -325,7 +332,7 @@ body {
     justify-content: flex-start;
     align-items: center;
   }
-  .container .content .data .check {
+  .container .content .users .data .check {
     width: 18px;
     height: 18px;
     background-color: white;
@@ -334,7 +341,7 @@ body {
     margin-left: 15px;
     margin-right: 1%;
   }
-  .container .content .data div {
+  .container .content .users .data div {
     font-size: 13px;
     color: #435d7d;
     padding: 12px 15px;
@@ -344,13 +351,13 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
   }
-  .container .content .data div:nth-child(2) {
+  .container .content .users .data div:nth-child(2) {
     width: 14%;
   }
-  .container .content .data div:nth-child(3) {
+  .container .content .users .data div:nth-child(3) {
     width: 32%;
   }
-  .container .content .data div:nth-child(5) {
+  .container .content .users .data div:nth-child(5) {
     width: 15%;
     display: flex;
     flex-direction: row;

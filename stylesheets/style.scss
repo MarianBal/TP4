@@ -134,59 +134,64 @@ body{
       }
     }
 
-    .data{
-      width: 100%;
-      margin-top: 10px;
-      @include flexbox(row, flex-start, center);
-
-      .check{
-        width: 18px;
-        height: 18px;
-        background-color: $text-color;
-        border: $border;
-        padding: 12px 15px;
-        margin-left: 15px;
-        margin-right:1%;
-      }
-
-      div{
-        font-size: 13px;
-        color:$header-color;
-        padding: 12px 15px;
-        text-transform: capitalize;
-        @include flexbox(row, flex-start, flex-start);
-      }
-
-      div:nth-child(2){
-        width: 20%;
-      }
-
-      div:nth-child(3){
-        width: 30%;
-      }
-
-      div:nth-child(4){
-        width:15%;
-      }
-
-      div:nth-child(5){
-        width: 15%;
-      }
-
-      i{
-        font-size: 22px;
-        margin: 0 7px;
-
-      }
-
-      .yellow{
-        color: #ffc107
-      }
-
-      .red{
-        color: #f44336;
-      }
+    .users{
+      width:100%;
+      @include flexbox(column, flex-start, flex-start);
       
+      .data{
+        width: 100%;
+        margin-top: 10px;
+        @include flexbox(row, flex-start, center);
+
+        .check{
+          width: 18px;
+          height: 18px;
+          background-color: $text-color;
+          border: $border;
+          padding: 12px 15px;
+          margin-left: 15px;
+          margin-right:1%;
+        }
+
+        div{
+          font-size: 13px;
+          color:$header-color;
+          padding: 12px 15px;
+          text-transform: capitalize;
+          @include flexbox(row, flex-start, flex-start);
+        }
+
+        div:nth-child(2){
+          width: 20%;
+        }
+
+        div:nth-child(3){
+          width: 30%;
+        }
+
+        div:nth-child(4){
+          width:15%;
+        }
+
+        div:nth-child(5){
+          width: 15%;
+        }
+
+        i{
+          font-size: 22px;
+          margin: 0 7px;
+
+        }
+
+        .yellow{
+          color: #ffc107
+        }
+
+        .red{
+          color: #f44336;
+        }
+        
+      }
     }
     
   }
@@ -356,43 +361,45 @@ body{
           width: 15%;
         }
       }
-  
-      .data{
-        width: 100%;
-        margin-top: 10px;
-        @include flexbox(row, flex-start, center);
-  
-        .check{
-          width: 18px;
-          height: 18px;
-          background-color: $text-color;
-          border: 1px solid #e9e9e9;
-          padding: 12px 15px;
-          margin-left: 15px;
-          margin-right:1%;
-        }
-  
-        div{
-          font-size: 13px;
-          color:$header-color;
-          padding: 12px 15px;
-          text-transform: capitalize;
-          @include flexbox(row, flex-start, flex-start);
-        }
-  
-        div:nth-child(2){
-          width: 14%;
-        }
-  
-        div:nth-child(3){
-          width: 32%;
-        }
-  
-        div:nth-child(5){
-          width: 15%;
-          @include flexbox(row, flex-end, center)
+      .users{
+        
+        .data{
+          width: 100%;
+          margin-top: 10px;
+          @include flexbox(row, flex-start, center);
+    
+          .check{
+            width: 18px;
+            height: 18px;
+            background-color: $text-color;
+            border: 1px solid #e9e9e9;
+            padding: 12px 15px;
+            margin-left: 15px;
+            margin-right:1%;
+          }
+    
+          div{
+            font-size: 13px;
+            color:$header-color;
+            padding: 12px 15px;
+            text-transform: capitalize;
+            @include flexbox(row, flex-start, flex-start);
+          }
+    
+          div:nth-child(2){
+            width: 14%;
+          }
+    
+          div:nth-child(3){
+            width: 32%;
+          }
+    
+          div:nth-child(5){
+            width: 15%;
+            @include flexbox(row, flex-end, center)
+          } 
         } 
-      }  
+      } 
     }
   }
 }
