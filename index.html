@@ -19,7 +19,7 @@
     <div class="container">
       <div class="header">
         <div class=title>manage <span>employees</span></div>
-        <div class="button">
+        <div class="button" onClick="openModal()" >
             <i class="material-icons"></i>
             <p>add new employee</p>
         </div>  
@@ -51,7 +51,7 @@
       <div class="modal-container">
         <div class="modal-top">
           <div class="modal-title">add employee</div>
-          <div class="close">x</div>
+          <div class="close" onClick="closeModal()">x</div>
         </div>
         <form name="login">
             <div class="modal-subtitles">name</div>
