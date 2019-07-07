@@ -139,7 +139,7 @@ body {
   width: 18px;
   height: 18px;
   background-color: white;
-  border: 1px solid #e9e9e9;
+  border: 1px solid #e5e5e5;
   padding: 12px 15px;
   margin-left: 15px;
   margin-right: 1%;
@@ -203,6 +203,7 @@ body {
   width: 100%;
   height: 36px;
   border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -219,6 +220,66 @@ body {
   color: rgba(67, 93, 125, 0.5);
   font-weight: 700;
   text-shadow: 0 1px 0 #fff;
+}
+.modal .modal-container form {
+  padding: 20px 0 0 0;
+}
+.modal .modal-container form .modal-subtitles {
+  width: 100%;
+  font-size: 13px;
+  font-weight: normal;
+  color: #435d7d;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+.modal .modal-container form input, .modal .modal-container form textarea {
+  width: 100%;
+  height: 30px;
+  border: 1px solid rgba(67, 93, 125, 0.5);
+  border-radius: 2px;
+  padding: 5px 12px;
+  margin-bottom: 20px;
+}
+.modal .modal-container form textarea {
+  height: 60px;
+}
+.modal .modal-container form .modal-footer {
+  border-radius: 0 0 3px 3px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.modal .modal-container form .modal-footer .cancel, .modal .modal-container form .modal-footer .add {
+  width: 100px;
+  height: 34px;
+  border-radius: 2px;
+  margin-left: 5px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: capitalize;
+  text-align: center;
+  vertical-align: middle;
+}
+.modal .modal-container form .modal-footer .add {
+  background-color: #5cb85c;
+  color: white;
+  border: 1px solid #4cae4c;
+}
+.modal .modal-container form .modal-footer .add:hover {
+  background-color: #4cae4c;
+}
+.modal .modal-container form .modal-footer .cancel {
+  color: #333;
+  border: 1px solid #e5e5e5;
+}
+.modal .modal-container form .modal-footer .cancel:hover {
+  background-color: #ecf0f1;
 }
 
 @media screen and (max-width: 768px) {
