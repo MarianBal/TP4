@@ -21,12 +21,9 @@ app.post('/api/users', (req, res) => {
   const newUser = req.body; 
 
   if (newUser.name.length>30 || newUser.name.trim().length === 0) {
-    // un aviso
-    // un res
-    // return
-    console.log('la cagaste')
+
    return res.status(400).end();
-  } else{
+  } else {
   newUser.id = nextId(users);
 
   users.push(newUser);
@@ -34,5 +31,37 @@ app.post('/api/users', (req, res) => {
   res.json(newUser);
   }
 });
+
+app.delete('/api/users/:userId', function (req, res) {
+  console.log(req.params.userId);
+  const id = parseInt(req.params.userId);
+
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].id === id) {
+      users.splice(i, 1);
+    }
+  }
+
+  res.json(users);
+});
+
+app.put('/api/todos/:userId/edit', function (req, res) {
+  const editUser = req.params
+  const id = editUser.userId;
+
+
+  todos.forEach(user=>{
+    if (id == user.id) {
+
+      user.name = editUser.name;
+      user.phone = editUser.phone;
+      user.email = editUser.email;
+      user.adress = editUser.adress;
+
+      return res.json(user);
+    }
+  });
+})
+
 
 app.listen(4000)
