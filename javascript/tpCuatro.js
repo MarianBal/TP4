@@ -177,7 +177,7 @@ const editUser = e =>{
       const userEdit = {
 
         name: document.getElementById('nameEdit').value,
-        mail: document.getElementById('emailEdit').value,
+        email: document.getElementById('emailEdit').value,
         adress: document.getElementById('adressEdit').value,
         phone: document.getElementById('phoneEdit').value,
       }

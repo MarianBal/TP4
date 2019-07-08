@@ -56,9 +56,11 @@ app.delete('/api/users/:userId', function (req, res) {
 });
 
 app.put('/api/users/:userId/edit', function (req, res) {
+
   const editUser = req.body;
 
-  const id = userId;
+  const id = req.params.userId;
+
 
   users.forEach(user=>{
     if (id == user.id) {
@@ -67,8 +69,6 @@ app.put('/api/users/:userId/edit', function (req, res) {
       user.phone = editUser.phone;
       user.email = editUser.email;
       user.adress = editUser.adress;
-
-      console.log(user)
 
       return res.json(user);
     }
