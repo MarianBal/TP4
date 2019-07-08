@@ -17,6 +17,17 @@ app.get('/api/users', (req, res) => {
   res.json(users);
 });
 
+app.get('/api/users/:userId', (req, res) => {
+  const id = parseInt(req.params.userId)
+
+  users.map(user=>{
+    if(user.id === id){
+      return user
+    }
+  })
+  res.json(users);
+});
+
 app.post('/api/users', (req, res) => {
   const newUser = req.body; 
 
@@ -33,7 +44,6 @@ app.post('/api/users', (req, res) => {
 });
 
 app.delete('/api/users/:userId', function (req, res) {
-  console.log(req.params.userId);
   const id = parseInt(req.params.userId);
 
   for (let i = 0; i < users.length; i++) {

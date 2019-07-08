@@ -4,6 +4,7 @@ console.log('Hola mundo');
 const modal = document.querySelector('.modal');
 const usersData= document.querySelector('.users');
 const form = document.getElementById('newEmployee');
+const body = document.querySelector('body')
 
 //open modal
 const openModal = ()=>{
@@ -31,10 +32,8 @@ const closeModal =()=>{
 const api = 'http://localhost:4000/api/users'
 
 fetch(api)
-  .then(function (res) {
-    return res.json();
-  })
-  .then( (users)=> {
+.then(res => res.json())
+  .then( users=> {
     const eachUser = users.map( u=> {
       return `<div id="user${u.id}" class="data">
       <input type="checkbox" id="selectItem" class="check">
@@ -116,37 +115,52 @@ const deleteUser = e => {
 //edit user
 const editUser = e =>{
 
-  fetch(`${api}/${e}/edit`, {
-    method: 'put'
-  })
+  fetch(`${api}/${e}`)
   .then(res => res.json())
-  .then(user=>{
+  .then(users=>{
+    users.map( u=> {
 
-    document.getElementById('name').value = user.name;
-    document.getElementById('email').value = user.email;
-    document.getElementById('adress').value = user.adress;
-    document.getElementById('phone').value = user.phone;
+    const div = document.createElement('div')
+    const addClass = ()=> div.classList.add('modal');
+    addClass();
 
-    openModal();
+    div.innerHTML = `
+    <div class="modal-container">
+        <div class="modal-top">
+          <div class="modal-title">add employee</div>
+          <div class="close" onClick="closeModal()">x</div>
+        </div>
+        <form name="login" id="newEmployee">
+            <div class="modal-subtitles">name</div>
+            <input id="nameEdit" name="name" type="text"/>
+            <div class="modal-subtitles">email</div>
+            <input id="emailEdit" name="email" type="text"/>
+            <div class="modal-subtitles">adress</div>
+            <textarea id="adressEdit" name="adress" type="text"></textarea>
+            <div class="modal-subtitles">phone</div>
+            <input id="phoneEdit" name="phone" type="text" />
+            <div class="modal-footer">  
+              <input type="button" class="cancel" onclick="closeModalEdit()" value="Cancel"/>
+              <input type="submit" class="add" value="edit"/> 
+            </div>
+        </form>
+      </div>`
+
+      body.appendChild(div)
+
+      document.getElementById('nameEdit').value = u.name;
+      document.getElementById('emailEdit').value = u.email;
+      document.getElementById('adressEdit').value = u.adress;
+      document.getElementById('phoneEdit').value = u.phone;
+    })
+
+    form.onsubmit = b=>{
+      b.preventDefault();
+
+    }
   })
-}
 
-function completar(id, button){
-  console.log(id, button)
 
-  fetch(`${dire}/${id}/completar`, {
-      method: 'put'
-  })
-  .then(res => res.json())
-  .then(todo=>{
-
-      const li =document.getElementById(`${id}`)
-
-      li
-          .querySelector('span.estado')
-          .innerHTML= todo.completada;
-
-  })
   
 }
 
