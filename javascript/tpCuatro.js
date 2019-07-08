@@ -24,8 +24,15 @@ const clean = ()=>{
 //close modal
 const closeModal =()=>{
     const hiddenModal=() => modal.classList.add('hidden');
-    clean();
     hiddenModal();
+}
+
+//close edit modal
+const closeEditModal =()=>{
+  const modalEdit = document.getElementById('editModal')
+  const hiddenEditModal=() => modalEdit.classList.add('hidden');
+  clean();
+  hiddenEditModal();
 }
 
 //fetch
@@ -129,9 +136,9 @@ const editUser = e =>{
     <div class="modal-container">
         <div class="modal-top">
           <div class="modal-title">add employee</div>
-          <div class="close" onClick="closeModal()">x</div>
+          <div class="close" onClick="closeEditModal()">x</div>
         </div>
-        <form name="login" id="newEmployee">
+        <form name="login" id="editEmployee">
             <div class="modal-subtitles">name</div>
             <input id="nameEdit" name="name" type="text"/>
             <div class="modal-subtitles">email</div>
@@ -141,7 +148,7 @@ const editUser = e =>{
             <div class="modal-subtitles">phone</div>
             <input id="phoneEdit" name="phone" type="text" />
             <div class="modal-footer">  
-              <input type="button" class="cancel" onclick="closeModalEdit()" value="Cancel"/>
+              <input type="button" class="cancel" onclick="closeEditModal()" value="Cancel"/>
               <input type="submit" class="add" value="edit"/> 
             </div>
         </form>
@@ -154,8 +161,10 @@ const editUser = e =>{
       document.getElementById('adressEdit').value = u.adress;
       document.getElementById('phoneEdit').value = u.phone;
     })
-  })
-  const editForm = document.getElementById('editModal');
+  });
+  const editForm = document.querySelector('#editEmployee');
+
+  console.log(editForm)
 
   editForm.onsubmit = e=>{
     e.preventDefault();
