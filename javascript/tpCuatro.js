@@ -126,9 +126,12 @@ const deleteUser = e => {
 //edit user
 const editUser = e =>{
 
+  const idEditUser = e;
+  console.log(idEditUser)
+
   usersList.forEach(u=>{
 
-    if(u.id === e){
+    if(u.id === idEditUser){
       const div = document.createElement('div');
       const addClass = ()=> div.classList.add('modal');
       addClass();
@@ -164,6 +167,46 @@ const editUser = e =>{
       document.getElementById('phoneEdit').value = u.phone;
    
     };
-    })
-  }
- 
+    });
+
+    const editForm = document.getElementById('editModal');
+
+    editForm.onsubmit = e=>{
+      e.preventDefault();
+    
+      const userEdit = {
+
+        name: document.getElementById('nameEdit').value,
+        mail: document.getElementById('emailEdit').value,
+        adress: document.getElementById('adressEdit').value,
+        phone: document.getElementById('phoneEdit').value,
+      }
+       console.log(userEdit) 
+      fetch(`${api}/${idEditUser}/edit`, {
+        method: 'put',
+        body: JSON.stringify(userEdit),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(res=> res.json())
+      .then(user=>{ 
+
+        const userWithChanges = document.getElementById(`user${idEditUser}`);
+        console.log(user)
+        console.log(userWithChanges)
+
+        userWithChanges.innerHTML = `<input type="checkbox" id="selectItem" class="check">
+        <div>${user.name}</div>
+        <div>${user.email}</div>
+        <div>${user.adress}</div>
+        <div>${user.phone}</div>
+        <i class="material-icons yellow" title="edit" onClick="editUser(${user.id})">&#xE254;</i>
+        <i class="material-icons red" title="delete" onClick="deleteUser(${user.id})">&#xE872;</i>`
+
+      })
+      closeEditModal();
+    }
+    
+}
+  

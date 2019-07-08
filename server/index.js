@@ -55,18 +55,20 @@ app.delete('/api/users/:userId', function (req, res) {
   res.json(users);
 });
 
-app.put('/api/todos/:userId/edit', function (req, res) {
-  const editUser = req.params
-  const id = editUser.userId;
+app.put('/api/users/:userId/edit', function (req, res) {
+  const editUser = req.body;
 
+  const id = userId;
 
-  todos.forEach(user=>{
+  users.forEach(user=>{
     if (id == user.id) {
 
       user.name = editUser.name;
       user.phone = editUser.phone;
       user.email = editUser.email;
       user.adress = editUser.adress;
+
+      console.log(user)
 
       return res.json(user);
     }
