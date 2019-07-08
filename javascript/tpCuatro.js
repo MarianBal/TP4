@@ -6,6 +6,8 @@ const usersData= document.querySelector('.users');
 const form = document.getElementById('newEmployee');
 const body = document.querySelector('body')
 
+let usersList = [];
+
 //open modal
 const openModal = ()=>{
     const visibleModal = ()=>modal.classList.remove('hidden');
@@ -32,8 +34,6 @@ const closeModal =()=>{
 const closeEditModal =()=>{
   const deleteModal = document.getElementById('editModal').remove();
 
-  deleteModal();
-
 }
 
 //fetch
@@ -42,6 +42,9 @@ const api = 'http://localhost:4000/api/users'
 fetch(api)
 .then(res => res.json())
   .then( users=> {
+
+    usersList = users
+
     const eachUser = users.map( u=> {
       return `<div id="user${u.id}" class="data">
       <input type="checkbox" id="selectItem" class="check">
@@ -91,6 +94,8 @@ form.onsubmit = e=>{
   })
   .then(res => res.json())
   .then(u=>{
+
+    usersList = u;
     const addUser= `<div class="data" id="user${u.id}">
     <input type="checkbox" id="selectItem" class="check">
     <div>${u.name}</div>
@@ -102,8 +107,6 @@ form.onsubmit = e=>{
   </div>`;
 
   usersData.innerHTML += addUser;
-
-  
   closeModal();
 
   })
@@ -123,19 +126,17 @@ const deleteUser = e => {
 //edit user
 const editUser = e =>{
 
-  fetch(`${api}/${e}`)
-  .then(res => res.json())
-  .then(users=>{
-    users.map( u=> {
+  usersList.forEach(u=>{
 
-    const div = document.createElement('div')
-    const addClass = ()=> div.classList.add('modal');
-    addClass();
-    div.setAttribute("id", "editModal");
+    if(u.id === e){
+      const div = document.createElement('div');
+      const addClass = ()=> div.classList.add('modal');
+      addClass();
+      div.setAttribute("id", "editModal");
 
-    div.innerHTML = `
-    <div class="modal-container">
-        <div class="modal-top">
+      div.innerHTML = `
+      <div class="modal-container">
+          <div class="modal-top">
           <div class="modal-title">edit employee</div>
           <div class="close" onClick="closeEditModal()">x</div>
         </div>
@@ -155,23 +156,14 @@ const editUser = e =>{
         </form>
       </div>`
 
-      body.appendChild(div)
+      body.appendChild(div);
 
       document.getElementById('nameEdit').value = u.name;
       document.getElementById('emailEdit').value = u.email;
       document.getElementById('adressEdit').value = u.adress;
       document.getElementById('phoneEdit').value = u.phone;
+   
+    };
     })
-
-    const editForm = document.getElementById('editModal');
-  
-    editForm.onsubmit = e=>{
-      e.preventDefault();
-
-    }
-
-  });
-
-  
-}
-
+  }
+ 
