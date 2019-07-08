@@ -1,0 +1,371 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: "Varela Round", sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+.container {
+  width: 85%;
+  height: 150px;
+  margin: 30px auto 0 auto;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container .header {
+  width: 100%;
+  height: 65px;
+  border-radius: 3px 3px 0px 0px;
+  -moz-border-radius: 3px 3px 0px 0px;
+  -webkit-border-radius: 3px 3px 0px 0px;
+  background-color: #435d7d;
+  color: white;
+  padding: 16px 30px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .header .title {
+  font-size: 24px;
+  text-transform: capitalize;
+}
+.container .header .title span {
+  font-weight: 700;
+}
+.container .header .button {
+  width: 171px;
+  height: 33px;
+  border-radius: 2px;
+  background-color: #5cb85c;
+  font-size: 13px;
+  text-transform: capitalize;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.container .header .button i {
+  margin-right: 4px;
+}
+.container .filter {
+  width: 100%;
+  height: 67px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.container .filter input {
+  width: 317px;
+  height: 34px;
+  padding: 12px 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.container .content {
+  width: 100%;
+  padding: 0 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container .content .data-titles {
+  width: 100%;
+  border-bottom: 2px solid #ddd;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container .content .data-titles .check {
+  width: 18px;
+  height: 18px;
+  background-color: white;
+  border: 1px solid #e9e9e9;
+  padding: 12px 15px;
+  margin-left: 15px;
+  margin-right: 1%;
+}
+.container .content .data-titles div {
+  font-size: 13px;
+  color: #435d7d;
+  padding: 12px 15px;
+  text-transform: capitalize;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.container .content .data-titles div:nth-child(2) {
+  width: 20%;
+}
+.container .content .data-titles div:nth-child(3) {
+  width: 30%;
+}
+.container .content .data-titles div:nth-child(4) {
+  width: 15%;
+}
+.container .content .data-titles div:nth-child(5) {
+  width: 15%;
+}
+.container .content .users {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.container .content .users .data {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container .content .users .data .check {
+  width: 18px;
+  height: 18px;
+  background-color: white;
+  border: 1px solid #e5e5e5;
+  padding: 12px 15px;
+  margin-left: 15px;
+  margin-right: 1%;
+}
+.container .content .users .data div {
+  font-size: 13px;
+  color: #435d7d;
+  padding: 12px 15px;
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.container .content .users .data div:nth-child(2) {
+  width: 20%;
+}
+.container .content .users .data div:nth-child(3) {
+  width: 30%;
+  text-transform: lowercase;
+}
+.container .content .users .data div:nth-child(4) {
+  width: 15%;
+}
+.container .content .users .data div:nth-child(5) {
+  width: 15%;
+}
+.container .content .users .data i {
+  font-size: 22px;
+  margin: 0 7px;
+  cursor: pointer;
+}
+.container .content .users .data .yellow {
+  color: #ffc107;
+}
+.container .content .users .data .red {
+  color: #f44336;
+}
+
+.modal {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  background-color: rgba(67, 93, 125, 0.5);
+}
+.modal .modal-container {
+  width: 398px;
+  height: 490px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  z-index: 5;
+  margin: 30px auto 0 auto;
+  padding: 20px 30px;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+}
+.modal .modal-container .modal-top {
+  width: 100%;
+  height: 36px;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal .modal-container .modal-top .modal-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #435d7d;
+  text-transform: capitalize;
+}
+.modal .modal-container .modal-top .close {
+  font-size: 21px;
+  color: rgba(67, 93, 125, 0.5);
+  font-weight: 700;
+  text-shadow: 0 1px 0 #fff;
+  cursor: pointer;
+}
+.modal .modal-container form {
+  padding: 20px 0 0 0;
+}
+.modal .modal-container form .modal-subtitles {
+  width: 100%;
+  font-size: 13px;
+  font-weight: normal;
+  color: #435d7d;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+.modal .modal-container form input, .modal .modal-container form textarea {
+  width: 100%;
+  height: 30px;
+  border: 1px solid rgba(67, 93, 125, 0.5);
+  border-radius: 2px;
+  padding: 5px 12px;
+  margin-bottom: 20px;
+}
+.modal .modal-container form textarea {
+  height: 60px;
+}
+.modal .modal-container form .modal-footer {
+  border-radius: 0 0 3px 3px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.modal .modal-container form .modal-footer .cancel, .modal .modal-container form .modal-footer .add {
+  width: 100px;
+  height: 34px;
+  border-radius: 2px;
+  margin-left: 5px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: capitalize;
+  text-align: center;
+  vertical-align: middle;
+}
+.modal .modal-container form .modal-footer .add {
+  background-color: #5cb85c;
+  color: white;
+  border: 1px solid #4cae4c;
+}
+.modal .modal-container form .modal-footer .add:hover {
+  background-color: #4cae4c;
+}
+.modal .modal-container form .modal-footer .cancel {
+  color: #333;
+  border: 1px solid #e5e5e5;
+}
+.modal .modal-container form .modal-footer .cancel:hover {
+  background-color: #ecf0f1;
+}
+
+.hidden {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 95%;
+    margin: 20px 0 0 10px;
+  }
+  .container .header {
+    height: 65px;
+  }
+  .container .header .button i {
+    margin-right: 4px;
+    width: 21px;
+  }
+  .container .filter input {
+    width: 190px;
+  }
+  .container .content .data-titles {
+    width: 100%;
+  }
+  .container .content .data-titles div:nth-child(2) {
+    width: 14%;
+  }
+  .container .content .data-titles div:nth-child(3) {
+    width: 32%;
+  }
+  .container .content .data-titles div:nth-child(4) {
+    width: 15%;
+  }
+  .container .content .data-titles div:nth-child(5) {
+    width: 15%;
+  }
+  .container .content .users .data {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .container .content .users .data .check {
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border: 1px solid #e9e9e9;
+    padding: 12px 15px;
+    margin-left: 15px;
+    margin-right: 1%;
+  }
+  .container .content .users .data div {
+    font-size: 13px;
+    color: #435d7d;
+    padding: 12px 15px;
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .container .content .users .data div:nth-child(2) {
+    width: 14%;
+  }
+  .container .content .users .data div:nth-child(3) {
+    width: 32%;
+  }
+  .container .content .users .data div:nth-child(5) {
+    width: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+/*# sourceMappingURL=syle.css.map */

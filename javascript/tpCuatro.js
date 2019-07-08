@@ -123,6 +123,7 @@ const editUser = e =>{
     const div = document.createElement('div')
     const addClass = ()=> div.classList.add('modal');
     addClass();
+    div.setAttribute("id", "editModal");
 
     div.innerHTML = `
     <div class="modal-container">
@@ -153,14 +154,12 @@ const editUser = e =>{
       document.getElementById('adressEdit').value = u.adress;
       document.getElementById('phoneEdit').value = u.phone;
     })
-
-    form.onsubmit = b=>{
-      b.preventDefault();
-
-    }
   })
+  const editForm = document.getElementById('editModal');
 
-
-  
+  editForm.onsubmit = e=>{
+    e.preventDefault();
+    console.log('lalala')
+  }
 }
 
