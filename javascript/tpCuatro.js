@@ -4,7 +4,9 @@ console.log('Hola mundo');
 const modal = document.querySelector('.modal');
 const usersData= document.querySelector('.users');
 const form = document.getElementById('newEmployee');
-const body = document.querySelector('body')
+const body = document.querySelector('body');
+const deleteModal = document.querySelector('.delete-modal');
+
 
 let usersList = [];
 
@@ -30,11 +32,15 @@ const closeModal =()=>{
     hiddenModal();
 }
 
+//open delete modal
+const openDelete = ()=>{
+  const visibleDelete = ()=>deleteModal.classList.remove('hidden');
+  visibleDelete();
+}
 //close delete modal
-const closeModal =()=>{
-  const hiddenModal=() => modal.classList.add('hidden');
-  clean();
-  hiddenModal();
+const closeDelete =()=>{
+  const hiddenDelete=() => deleteModal.classList.add('hidden');
+  hiddenDelete();
 }
 
 //delete edit modal
@@ -84,7 +90,6 @@ form.onsubmit = e=>{
     document.getElementById('phone').value = 'Dato no válido'
   }
 
-  
   const newUser = {
     name:newName,
     mail:newEmail,
@@ -122,12 +127,16 @@ form.onsubmit = e=>{
 //delete user
 const deleteUser = e => {
 
-  //falta modal
-  
-  fetch(`${api}/${e}`, {method: 'delete'})
-  .then(res=>{
-    document.getElementById(`user${e}`).remove()
-  })
+  openDelete();
+
+  const buttonDelete = document.querySelector('.delete');
+  buttonDelete.onclick = ()=>{
+    fetch(`${api}/${e}`, {method: 'delete'})
+    .then(res=>{
+      document.getElementById(`user${e}`).remove()
+      closeDelete();
+    })
+  } 
 }
 
 //edit user

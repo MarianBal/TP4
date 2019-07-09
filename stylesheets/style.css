@@ -361,7 +361,7 @@ body {
   justify-content: flex-end;
   align-items: flex-end;
 }
-.delete-modal .delete-container .delete-footer .cancel, .delete-modal .delete-container .delete-footer .add {
+.delete-modal .delete-container .delete-footer .cancel, .delete-modal .delete-container .delete-footer .delete {
   width: 100px;
   height: 34px;
   border-radius: 2px;
@@ -374,12 +374,12 @@ body {
   text-align: center;
   vertical-align: middle;
 }
-.delete-modal .delete-container .delete-footer .add {
+.delete-modal .delete-container .delete-footer .delete {
   background-color: #d9534f;
   color: white;
   border: 1px solid #d43f3a;
 }
-.delete-modal .delete-container .delete-footer .add:hover {
+.delete-modal .delete-container .delete-footer .delete:hover {
   background-color: #d43f3a;
 }
 .delete-modal .delete-container .delete-footer .cancel {

@@ -382,7 +382,7 @@ body{
       margin-top: 30px;
       @include flexbox(row, flex-end, flex-end);
 
-      .cancel, .add{
+      .cancel, .delete{
         width:100px;
         height: 34px;
         border-radius: 2px;
@@ -396,13 +396,13 @@ body{
         vertical-align: middle;
         }
 
-      .add{
+      .delete{
         background-color: #d9534f;
         color:$text-color;
         border: 1px solid #d43f3a;
       }
 
-      .add:hover{
+      .delete:hover{
         background-color: #d43f3a;
       }
 
