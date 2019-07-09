@@ -30,6 +30,13 @@ const closeModal =()=>{
     hiddenModal();
 }
 
+//close delete modal
+const closeModal =()=>{
+  const hiddenModal=() => modal.classList.add('hidden');
+  clean();
+  hiddenModal();
+}
+
 //delete edit modal
 const closeEditModal =()=>{
   const deleteModal = document.getElementById('editModal').remove();
