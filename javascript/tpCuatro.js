@@ -92,7 +92,7 @@ form.onsubmit = e=>{
 
   const newUser = {
     name:newName,
-    mail:newEmail,
+    email:newEmail,
     adress: newAdress,
     phone:newPhone
   }
