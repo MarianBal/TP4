@@ -7,7 +7,6 @@ const form = document.getElementById('newEmployee');
 const body = document.querySelector('body');
 const deleteModal = document.querySelector('.delete-modal');
 
-
 let usersList = [];
 
 //open modal
@@ -226,3 +225,36 @@ const editUser = e =>{
     
 }
   
+// search input
+
+const search = document.getElementById('search');
+
+search.onkeydown = e=>{
+  if(e.keyCode === 13){
+  const q = search.value;
+
+  fetch(`${api}/search/${q}`)
+    .then(res =>res.json())
+    .then(users=> {
+
+      const eachFilterUser = users.map( u=> {
+        return `<div id="user${u.id}" class="data">
+        <input type="checkbox" id="selectItem" class="check">
+        <div>${u.name}</div>
+        <div>${u.email}</div>
+        <div>${u.adress}</div>
+        <div>${u.phone}</div>
+        <i class="material-icons yellow" title="edit" onClick="editUser(${u.id})">&#xE254;</i>
+        <i class="material-icons red" title="delete" onClick="deleteUser(${u.id})">&#xE872;</i>
+      </div>`;
+      }).join('');
+  
+      usersData.innerHTML= eachFilterUser;
+    
+
+    })
+    
+  search.value='';
+  }
+
+}

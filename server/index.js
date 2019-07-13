@@ -6,7 +6,9 @@ app.use(cors());
 app.use(express.json());
 
 const users = [
-  {id: 1, name: 'Bruce Wayne', phone: '08009991111', email: 'bruce@wayneenterpreises.com', adress: 'Gotham City'}
+  {id: 1, name: 'bruce wayne', phone: '08009991111', email: 'bruce@wayneenterpreises.com', adress: 'Gotham City'},
+  {id: 2, name: 'ada lovelace', phone: '0554755558', email: 'contacto@gmail.com', adress: 'flores'},
+  {id: 3, name: 'grace hopper', phone: '26588833448', email: 'contacto@hotmail.com', adress: 'Almagro'}
 ]
 
 const nextId = (e=[]) =>{
@@ -36,6 +38,8 @@ app.post('/api/users', (req, res) => {
    return res.status(400).end();
   } else {
   newUser.id = nextId(users);
+
+  console.log(newUser)
 
   users.push(newUser);
 
@@ -74,6 +78,21 @@ app.put('/api/users/:userId/edit', function (req, res) {
     }
   });
 })
+
+app.get('/api/users/search/:search', (req, res) => {
+  const search = req.params.search;
+  console.log(search)
+
+  users.map(user=>{
+    if(user.adress === search || user.name === search.toLowerCase() || user.phone === parseInt(search) || user.adress === search.toLowerCase() ){
+
+      return user;
+    }
+  })
+  res.json(users);
+});
+
+
 
 
 app.listen(4000)
