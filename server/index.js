@@ -35,7 +35,7 @@ app.post('/api/users', (req, res) => {
 
   if (newUser.name.length>30 || newUser.name.trim().length === 0) {
 
-   return res.status(400).end();
+   return res.status(400).send('Salió todo mal');
   } else {
   newUser.id = nextId(users);
 
@@ -43,7 +43,7 @@ app.post('/api/users', (req, res) => {
 
   users.push(newUser);
 
-  res.json(newUser);
+  res.status(200).send();
   }
 });
 

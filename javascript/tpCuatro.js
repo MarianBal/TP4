@@ -103,7 +103,15 @@ form.onsubmit = e=>{
       'Content-Type': 'application/json'
     }
   })
-  .then(res => res.json())
+  .then(res => {
+    if(!res.ok){
+      console.log('salió todo mal');
+  
+    } else {
+      return res.json();
+    }
+  })
+
   .then(u=>{
 
     usersList = u;
