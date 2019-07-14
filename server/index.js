@@ -11,9 +11,7 @@ const users = [
   {id: 3, name: 'grace hopper', phone: '26588833448', email: 'contacto@hotmail.com', adress: 'Almagro'}
 ]
 
-const nextId = (e=[]) =>{
-  e.length ? (e[e.length-1].id + 1) : 1; 
-}
+const nextId = (e = []) => e.length ? (e[e.length - 1].id + 1) : 1;
 
 app.get('/api/users', (req, res) => {
   res.json(users);
