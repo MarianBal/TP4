@@ -161,7 +161,6 @@ const deleteUser = e => {
 const editUser = e =>{
 
   const idEditUser = e;
-  console.log(idEditUser)
 
   usersList.forEach(u=>{
 
@@ -207,7 +206,27 @@ const editUser = e =>{
 
     editForm.onsubmit = e=>{
       e.preventDefault();
-    
+
+      const nameEdit =  document.getElementById('nameEdit').value;
+      const emailEdit = document.getElementById('emailEdit').value;
+      const phoneEdit = document.getElementById('phoneEdit').value;
+
+    const editEmailSearch = /^\w.*@\w+\.\w/.test(emailEdit);
+  
+    if (nameEdit.length>30 || nameEdit.trim().length === 0) {
+
+      document.getElementById('nameEdit').value = 'Dato no válido'
+
+    }else if (editEmailSearch == false || emailEdit.trim().length === 0){
+
+      document.getElementById('emailEdit').value = 'Dato no válido'
+
+    }else if (isNaN(phoneEdit) || phoneEdit.trim().length === 0){
+
+      document.getElementById('phoneEdit').value = 'Dato no válido'
+
+    }else{
+
       const userEdit = {
 
         name: document.getElementById('nameEdit').value,
@@ -215,7 +234,7 @@ const editUser = e =>{
         adress: document.getElementById('adressEdit').value,
         phone: document.getElementById('phoneEdit').value,
       }
-       console.log(userEdit) 
+       
       fetch(`${api}/${idEditUser}/edit`, {
         method: 'put',
         body: JSON.stringify(userEdit),
@@ -223,7 +242,7 @@ const editUser = e =>{
           'Content-Type': 'application/json'
         }
       })
-      .then(res=> res.json())
+      .then(res => res.json())
       .then(user=>{ 
 
         const userWithChanges = document.getElementById(`user${idEditUser}`);
@@ -240,6 +259,8 @@ const editUser = e =>{
 
       })
       closeEditModal();
+
+    }
     }
     
 }

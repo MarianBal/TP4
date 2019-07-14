@@ -71,18 +71,35 @@ app.put('/api/users/:userId/edit', function (req, res) {
 
   const id = req.params.userId;
 
+  const editEmailSearch = /^\w.*@\w+\.\w/.test(editUser.email);
 
-  users.forEach(user=>{
-    if (id == user.id) {
+  if (editUser.name.length>30 || editUser.name.trim().length === 0) {
 
-      user.name = editUser.name;
-      user.phone = editUser.phone;
-      user.email = editUser.email;
-      user.adress = editUser.adress;
+   return res.status(400).send('Salió todo mal');
 
-      return res.json(user);
-    }
-  });
+  } else if(editEmailSearch == false || editUser.email.trim().length === 0){
+
+    return res.status(400).send('Salió todo mal');
+
+  }else if (isNaN(editUser.phone) || editUser.phone.trim().length === 0){
+
+    return res.status(400).send('Salió todo mal');
+  
+  }else{
+    res.status(200).send()
+  }
+
+    users.forEach(user=>{
+      if (id == user.id) {
+
+        user.name = editUser.name;
+        user.phone = editUser.phone;
+        user.email = editUser.email;
+        user.adress = editUser.adress;
+
+        return res.json(user);
+      }
+    });
 })
 
 app.get('/api/users/search/:search', (req, res) => {
