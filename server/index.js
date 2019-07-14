@@ -32,11 +32,21 @@ app.get('/api/users/:userId', (req, res) => {
 
 app.post('/api/users', (req, res) => {
   const newUser = req.body; 
+  const emailSearch = /^@/.test(newUser.email);
 
   if (newUser.name.length>30 || newUser.name.trim().length === 0) {
 
    return res.status(400).send('Salió todo mal');
-  } else {
+
+  } else if(emailSearch == false || newEmail.trim().length === 0){
+
+    return res.status(400).send('Salió todo mal');
+
+  }else if (isNaN(newPhone) || newPhone.trim().length === 0){
+
+    return res.status(400).send('Salió todo mal');
+
+  }else {
   newUser.id = nextId(users);
 
   console.log(newUser)

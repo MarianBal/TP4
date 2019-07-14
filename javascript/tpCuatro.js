@@ -81,12 +81,20 @@ form.onsubmit = e=>{
   const newAdress = document.getElementById('adress').value;
   const newPhone = document.getElementById('phone').value;
 
+  const emailSearch = /^@/.test(newEmail);
+  
   if (newName.length>30 || newName.trim().length === 0) {
 
     document.getElementById('name').value = 'Dato no válido'
 
-  }else if (isNaN(newPhone)){
+  }else if (emailSearch == false || newEmail.trim().length === 0){
+
+    document.getElementById('email').value = 'Dato no válido'
+
+  }else if (isNaN(newPhone) || newPhone.trim().length === 0){
+
     document.getElementById('phone').value = 'Dato no válido'
+    
   }
 
   const newUser = {
