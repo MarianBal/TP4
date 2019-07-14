@@ -81,7 +81,7 @@ form.onsubmit = e=>{
   const newAdress = document.getElementById('adress').value;
   const newPhone = document.getElementById('phone').value;
 
-  const emailSearch = /^@/.test(newEmail);
+  const emailSearch = /^\w.*@\w+\.\w/.test(newEmail);
   
   if (newName.length>30 || newName.trim().length === 0) {
 
@@ -94,7 +94,7 @@ form.onsubmit = e=>{
   }else if (isNaN(newPhone) || newPhone.trim().length === 0){
 
     document.getElementById('phone').value = 'Dato no válido'
-    
+
   }
 
   const newUser = {
@@ -119,7 +119,7 @@ form.onsubmit = e=>{
       }
   
     } else {
-      return res.json();
+      return res => res.json();
     }
   })
 
