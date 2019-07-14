@@ -105,7 +105,10 @@ form.onsubmit = e=>{
   })
   .then(res => {
     if(!res.ok){
-      console.log('salió todo mal');
+      throw {
+        status: res.status,
+        message: 'Los datos no son válidos'
+      }
   
     } else {
       return res.json();
