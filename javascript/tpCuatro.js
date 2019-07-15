@@ -270,8 +270,9 @@ const editUser = e =>{
 const search = document.getElementById('search');
 
 search.onkeydown = e=>{
-  if(e.keyCode === 13){
+  //if(e.keyCode === 13){
   const q = search.value;
+  console.log(q)
 
   fetch(`${api}/search/${q}`)
     .then(res =>res.json())
@@ -291,10 +292,10 @@ search.onkeydown = e=>{
   
       usersData.innerHTML= eachFilterUser;
     
-
     })
-    
-  search.value='';
+
+  if(e.keyCode === 13){
+    search.value='';
   }
 
 }
