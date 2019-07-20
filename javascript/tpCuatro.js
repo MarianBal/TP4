@@ -270,7 +270,6 @@ const editUser = e =>{
 const search = document.getElementById('search');
 
 search.onkeydown = e=>{
-  //if(e.keyCode === 13){
   const q = search.value;
   console.log(q)
 
@@ -278,6 +277,7 @@ search.onkeydown = e=>{
     .then(res =>res.json())
     .then(users=> {
 
+      // console.log(users)
       const eachFilterUser = users.map( u=> {
         return `<div id="user${u.id}" class="data">
         <input type="checkbox" id="selectItem" class="check">

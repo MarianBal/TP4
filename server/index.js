@@ -103,16 +103,17 @@ app.put('/api/users/:userId/edit', function (req, res) {
 })
 
 app.get('/api/users/search/:search', (req, res) => {
-  const search = req.params.search;
-  console.log(search)
+  const searchUser = req.params.search;
+  console.log(searchUser);
 
-  users.map(user=>{
-    if(user.adress === search || user.name === search.toLowerCase() || user.phone === parseInt(search) || user.adress === search.toLowerCase() ){
-
-      return user;
+  const found = users.find(u=> {
+    if(u.name == searchUser || u.phone == searchUser || u.email == searchUser){
+      return u
     }
-  })
-  res.json(users);
+  });
+
+console.log(found); 
+  res.json(found);
 });
 
 
