@@ -106,9 +106,9 @@ app.get('/api/users/search/:search', (req, res) => {
   const searchUser = req.params.search;
   console.log(searchUser);
 
-  const found = users.find(u=> {
-    if(u.name == searchUser || u.phone == searchUser || u.email == searchUser){
-      return u
+  const found = users.map(u=> {
+    if(u.name === searchUser.toString() || u.phone == searchUser || u.email == searchUser){
+      return u;
     }
   });
 
