@@ -104,10 +104,12 @@ app.put('/api/users/:userId/edit', function (req, res) {
 
 app.get('/api/users/search/:search', (req, res) => {
   const searchUser = req.params.search;
+
+  // searchUser.toLowerCase();
   console.log(searchUser);
 
   const found = users.map(u=> {
-    if(u.name === searchUser.toString() || u.phone == searchUser || u.email == searchUser){
+    if(u.name === searchUser || u.phone == searchUser || u.email == searchUser){
       return u;
     }
   });
