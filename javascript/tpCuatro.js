@@ -276,9 +276,7 @@ search.onkeydown = e=>{
   fetch(`${api}/search/${q}`)
     .then(res =>res.json())
     .then(users=> {
-      console.log (users)
 
-      // console.log(users)
       const eachFilterUser = users.map( u=> {
         return `<div id="user${u.id}" class="data">
         <input type="checkbox" id="selectItem" class="check">
@@ -303,10 +301,13 @@ search.onkeydown = e=>{
 
 //check all
 
-const checked = document.getElementById('select-all');
+const checkAll = document.getElementById('select-all');
 
+checkAll.onclick = () => {
+  if(checkAll.checked){
+    document.querySelectorAll('.check').forEach(u=>u.checked= true)
 
-
-checked.onclick = () => {
-checked.checked ? document.querySelectorAll('.check').forEach(u=>u.checked): console.log('no algo');
+  } else if(!checkAll.checked){
+    document.querySelectorAll('.check').forEach(u=>u.checked= false)
+  }
 }
