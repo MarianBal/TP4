@@ -272,7 +272,6 @@ const search = document.getElementById('search');
 search.onkeydown = e=>{
 
   const q = search.value;
-  console.log(q)
 
   fetch(`${api}/search/${q}`)
     .then(res =>res.json())
