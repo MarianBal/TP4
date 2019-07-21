@@ -105,11 +105,10 @@ app.put('/api/users/:userId/edit', function (req, res) {
 app.get('/api/users/search/:search', (req, res) => {
   const searchUser = req.params.search;
 
-  // searchUser.toLowerCase();
   console.log(searchUser);
 
-  const found = users.map(u=> {
-    if(u.name === searchUser || u.phone == searchUser || u.email == searchUser){
+  const found = users.filter(u=> {
+    if(u.name.match(searchUser) || u.phone.match(searchUser) || u.email.match(searchUser)){
       return u;
     }
   });

@@ -269,11 +269,7 @@ const editUser = e =>{
 
 const search = document.getElementById('search');
 
-
-
 search.onkeydown = e=>{
-
-  if(e.keyCode === 13){
 
   const q = search.value;
   console.log(q)
@@ -303,5 +299,15 @@ search.onkeydown = e=>{
   if(e.keyCode === 13){
     search.value='';
   }
-  }
+  
+}
+
+//check all
+
+const checked = document.getElementById('select-all');
+
+
+
+checked.onclick = () => {
+checked.checked ? document.querySelectorAll('.check').forEach(u=>u.checked): console.log('no algo');
 }
